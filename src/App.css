@@ -296,8 +296,8 @@ a {
 
 @media (min-width: 320px) and (max-width: 992px) {
   .common_heading h2 {
-      font-size: 26px;
-      line-height: 32px;
+    font-size: 26px;
+    line-height: 32px;
   }
 }
 
@@ -372,8 +372,8 @@ a {
 
 @media (min-width: 320px) and (max-width: 992px) {
   .common_heading h2 {
-      font-size: 26px;
-      line-height: 32px;
+    font-size: 26px;
+    line-height: 32px;
   }
 }
 
@@ -410,7 +410,7 @@ a {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid rgba(0, 0, 0, .125);
   border-radius: 0.25rem;
 }
 
@@ -462,7 +462,7 @@ a {
 
 .faq_txt_wrap .card-body {
   padding-top: 0;
-} 
+}
 
 .faq_txt_wrap p {
   font-style: normal;
@@ -532,7 +532,7 @@ a {
 
 @media (min-width: 320px) and (max-width: 992px) {
   .faq_chat_box {
-      padding: 10px;
+    padding: 10px;
   }
 }
 
@@ -547,7 +547,7 @@ a {
 
 @media (min-width: 320px) and (max-width: 992px) {
   .faq_chat_box h6 {
-      font-size: 13px;
+    font-size: 13px;
   }
 }
 
@@ -573,7 +573,7 @@ a {
 
 @media (min-width: 320px) and (max-width: 992px) {
   .exchange_top_wrap {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
 
@@ -603,7 +603,7 @@ a {
 
 @media (min-width: 320px) and (max-width: 992px) {
   .ftr_logo p {
-      width: 100%;
+    width: 100%;
   }
 }
 
@@ -614,7 +614,8 @@ a {
   padding: 0;
 }
 
-.ftr_links ul, .ftr_social ul {
+.ftr_links ul,
+.ftr_social ul {
   padding: 0;
 }
 
@@ -630,15 +631,18 @@ ul li {
   color: #FFFFFF;
 }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
 }
 
-.ftr_social, .ftr_links {
+.ftr_social,
+.ftr_links {
   margin-top: 40px;
 }
 
-.ftr_social h6, .ftr_links h6 {
+.ftr_social h6,
+.ftr_links h6 {
   font-style: normal;
   font-weight: 700;
   font-size: 13.5px;
@@ -646,7 +650,8 @@ a, a:hover {
   color: rgba(72, 94, 237, 0.9);
 }
 
-ol, ul {
+ol,
+ul {
   list-style-type: none;
   margin: 0;
 }
@@ -683,7 +688,7 @@ ol, ul {
 
 @media (min-width: 320px) and (max-width: 992px) {
   .ftr_copy_txt {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
 
@@ -702,3 +707,341 @@ button:visited {
 button:focus {
   outline: none !important;
 }
+
+.about_us_section {
+  padding: 60px 0px;
+}
+
+.common_heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.common_heading h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 46px;
+  color: #FFFFFF;
+}
+
+.common_heading p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 10px;
+}
+
+.about_header_wrap {
+  background: #485EED;
+  border-radius: 25px;
+  padding: 45px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about_titles {
+  margin-top: 20px;
+}
+
+.about_titles h4 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 46px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.about_titles h4 span {
+  color: #485EED;
+}
+
+.about_titles p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15.6399px;
+  line-height: 25px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.about_titles ul {
+  margin-top: 25px;
+  padding: 0;
+}
+
+.about_titles ul li {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.about_titles ul li i {
+  margin-right: 5px;
+  font-size: 5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.captcha_badge {
+  width: 256px;
+  height: 60px;
+  display: block;
+  transition: right 0.3s ease 0s;
+  position: fixed;
+  bottom: 14px;
+  right: -186px;
+  box-shadow: gray 0px 0px 5px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.recaptcha_response {
+  width: 250px;
+  height: 40px;
+  border: 1px solid rgb(193, 193, 193);
+  margin: 10px 25px;
+  padding: 0px;
+  resize: none;
+  display: none;
+}
+
+.login_section {
+  padding: 60px 0px;
+}
+
+.signup_inner_wrap {
+  background: #1A1E29;
+  border-radius: 30px;
+  padding: 40px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.signup_frm_wrap h6 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41px;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.signup_frm_wrap p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.signup_frm_wrap .form-group {
+  position: relative;
+  margin: 30px 0px;
+}
+
+.signup_frm_wrap .form-group .form-control {
+  border: 2px solid rgba(209, 209, 209, 0.1);
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: #FFFFFF;
+  background-color: transparent;
+  height: 55px;
+  padding-right: 45px;
+  padding-left: 15px;
+}
+
+.signup_frm_wrap .form-group i {
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  font-size: 17px;
+  color: #fff;
+}
+
+.signup_frm_wrap .form-group span {
+  position: absolute;
+  right: 11px;
+  top: 14px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup_frm_wrap .form-groupa p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 22px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .signup_frm_wrap p {
+    font-size: 14px;
+  }
+}
+
+.signup_frm_wrap .form-group .btn_submit {
+  background: #485EED;
+  border-radius: 12px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: #FFFFFF;
+  display: inline-block;
+  margin-top: 10px;
+  border: 2px solid #485EED;
+  transition: all linear .2s;
+  text-transform: capitalize;
+  padding: 13px 40px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.signup_frm_wrap .form-group p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup_frm_wrap .form-group a {
+  color: #fff;
+}
+
+.order_link {
+  background-color: rgb(72, 94, 237);
+  border: unset;
+}
+
+.my_order_sec {
+  padding: 60px 0px;
+}
+
+.common_heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.common_heading h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 46px;
+  color: #FFFFFF;
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .common_heading h2 {
+      font-size: 26px;
+      line-height: 32px;
+  }
+}
+
+.common_heading p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15.6399px;
+  line-height: 25px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 10px;
+}
+
+.order_search_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .order_search_wrap {
+      flex-direction: column;
+  }
+}
+
+.order_search_wrap input {
+  border: 1px solid rgba(209, 209, 209, 0.1);
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: #FFFFFF;
+  background-color: transparent;
+  padding-left: 10px;
+  height: 47px;
+  width: 75%;
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .order_search_wrap input {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+}
+
+.order_search_wrap span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: #FFFFFF;
+  display: inline-block;
+}
+
+.order_main_table {
+  background: #1A1E29;
+  border-radius: 30px;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+.order_main_table table {
+  width: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .order_main_table table {
+      display: block;
+      width: 100%;
+      overflow-x: scroll;
+  }
+}
+
+.order_main_table tr:first-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.order_main_table tr th {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .order_main_table table tr th, .order_main_table table tr td {
+      font-size: 14px;
+  }
+}
+
