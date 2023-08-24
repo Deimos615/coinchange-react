@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import ClipLoader from "react-spinners/ClipLoader";
 import Cookies from 'js-cookie';
 import { commonAxios } from '../api/axios';
+import { ToastProvider, useToasts } from 'react-toast-notifications';
 
 export const Order = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [items, setItems] = useState([])
+  const { addToast } = useToasts()
   const override = {
     display: "block",
     margin: "50px auto",
@@ -31,18 +33,19 @@ export const Order = () => {
         Cookies.remove('token')
         window.location.href = '/login'
       }
-    } 
+    }
     getData()
   }, [token])
 
   const finish = async (id) => {
     try {
-      const response = await commonAxios.post(`/order/updateStatus/${id}`, {status: 'Finished'}, {
+      const response = await commonAxios.post(`/order/updateStatus/${id}`, { status: 'Finished' }, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       })
       setLoggedIn(true)
+      addToast(response.data.msg, { appearance: 'success' })
       setItems(response.data.orders)
     } catch (err) {
       if (err.response.status === 401) {
@@ -55,12 +58,13 @@ export const Order = () => {
 
   const hold = async (id) => {
     try {
-      const response = await commonAxios.post(`/order/updateStatus/${id}`, {status: 'Holding'}, {
+      const response = await commonAxios.post(`/order/updateStatus/${id}`, { status: 'Holding' }, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       })
       setLoggedIn(true)
+      addToast(response.data.msg, { appearance: 'success' })
       setItems(response.data.orders)
     } catch (err) {
       if (err.response.status === 401) {
@@ -73,12 +77,13 @@ export const Order = () => {
 
   const cancel = async (id) => {
     try {
-      const response = await commonAxios.post(`/order/updateStatus/${id}`, {status: 'Canceled'}, {
+      const response = await commonAxios.post(`/order/updateStatus/${id}`, { status: 'Canceled' }, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       })
       setLoggedIn(true)
+      addToast(response.data.msg, { appearance: 'success' })
       setItems(response.data.orders)
     } catch (err) {
       if (err.response.status === 401) {
@@ -131,7 +136,20 @@ export const Order = () => {
                             <td>{item.amount}</td>
                             <td>{item.estimated_amount}</td>
                             <td>{item.status}</td>
-                            <td><button className='btn btn-success mx-1' onClick={() => finish(item.id)}>Finish</button><button className='btn btn-info mx-1' onClick={() => hold(item.id)}>Hold</button><button className='btn btn-danger mx-1' onClick={() => cancel(item.id)}>Cancel</button></td>
+                            {/* <td><button className='btn btn-success mx-1' onClick={() => finish(item.id)}>Finish</button><button className='btn btn-info mx-1' onClick={() => hold(item.id)}>Hold</button><button className='btn btn-danger mx-1' onClick={() => cancel(item.id)}>Cancel</button></td> */}
+                            <td>
+                              <div className="dropdown show action_btn">
+                                <span className="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Action
+                                </span>
+
+                                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <span className="dropdown-item" onClick={() => finish(item.id)}>Finish</span>
+                                  <span className="dropdown-item" onClick={() => hold(item.id)}>Hold</span>
+                                  <span className="dropdown-item" onClick={() => cancel(item.id)}>Cancel</span>
+                                </div>
+                              </div>
+                            </td>
                           </tr>
                         ))}
                       </tbody>

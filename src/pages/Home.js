@@ -6,14 +6,21 @@ import discord from '../assets/images/dis.svg'
 import { useForm } from 'react-hook-form'
 import { commonAxios } from '../api/axios';
 import Cookies from 'js-cookie';
+import { ToastProvider, useToasts } from 'react-toast-notifications';
 
 export const Home = () => {
   const { register, handleSubmit } = useForm()
   const [amount, setAmount] = useState(0)
+  const { addToast } = useToasts()
 
   const onSubmit = async (e) => {
     const token = Cookies.get('token')
+
     if (token) {
+      if (!e.amount) return addToast('Please input Amount!', { appearance: 'error' })
+      if (!e.wallet_address) return addToast('Please input Wallet Address!', { appearance: 'error' })
+      if (!e.toEmail) return addToast('Please input Payment Address!', { appearance: 'error' })
+      e.estimated_amount = e.amount * 98 / 100
       try {
         const response = await commonAxios.post('/order', e, {
           headers: {
@@ -21,7 +28,10 @@ export const Home = () => {
           }
         })
         if (response.data.success) {
-          window.location.reload()
+          addToast(response.data.msg, { appearance: 'success' })
+          setTimeout(() => {
+            window.location.reload()
+          }, 1500)
         }
       } catch (err) {
         console.log(err)
@@ -37,6 +47,9 @@ export const Home = () => {
   }
   return (
     <div>
+      <ToastProvider>
+
+      </ToastProvider>
       <section className='home_section'>
         <div className='row justify-content-center'>
           <Col sm={12}>
@@ -54,7 +67,7 @@ export const Home = () => {
                 <div className='exchange_top_wrap'>
                   <div className='echange_lft'>
                     <div className='echange_input'>
-                      <input {...register('amount')} type="number" onKeyUp={handleKeyPress}/>
+                      <input {...register('amount')} type="number" onKeyUp={handleKeyPress} />
                       <select {...register('product')} className="pl-0" style={{ maxWidth: '100px' }}>
                         <option value="Payoneer">Payoneer</option>
                         <option value="Wise">Wise</option>
@@ -75,7 +88,7 @@ export const Home = () => {
                         <option value="BEP20">USDT(BEP20)</option>
                         <option value="ERC20">USDT(ERC20)</option>
                       </select>
-                      <input {...register('estimated_amount')} type="number" value={amount} readOnly/>
+                      <input {...register('estimated_amount')} type="number" value={amount} />
                     </div>
                     {/* <p>1 ETH ≈ 0.06317867 BTC | $279.53</p> */}
                   </div>

@@ -1088,3 +1088,7 @@ button:focus {
   left: 35px;
   top: 7px;
 }
+
+.action_btn span {
+  cursor: pointer;
+}
