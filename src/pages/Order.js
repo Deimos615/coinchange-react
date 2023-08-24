@@ -13,24 +13,26 @@ export const Order = () => {
   };
 
   const token = Cookies.get('token')
-  useEffect(async () => {
-    if (token) {
-      try {
-        const response = await commonAxios.get('/order', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        })
-        setLoggedIn(true)
-        setItems(response.data.orders)
-        console.log('rsponse data......', response.data)
-      } catch (err) {
-        console.log(err)
+  useEffect(() => {
+    const getData = async () => {
+      if (token) {
+        try {
+          const response = await commonAxios.get('/order', {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          })
+          setLoggedIn(true)
+          setItems(response.data.orders)
+        } catch (err) {
+          console.log(err)
+        }
+      } else {
+        Cookies.remove('token')
+        window.location.href = '/login'
       }
-    } else {
-      Cookies.remove('token')
-      window.location.href = '/login'
-    }
+    } 
+    getData()
   }, [token])
 
   const finish = async (id) => {
@@ -122,7 +124,7 @@ export const Order = () => {
                       </thead>
                       <tbody>
                         {items.map((item, index) => (
-                          <tr>
+                          <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{item.product}</td>
                             <td>{item.network}</td>
