@@ -1,5 +1,5 @@
 import React from 'react';
-import discord from './assets/images/dis.svg'
+import discord from '../assets/images/dis.svg'
 
 export const Faq = () => (
   <div>
@@ -21,7 +21,7 @@ export const Faq = () => (
                   <div className="card">
                     <div className="card-header" id="faqOne">
                       <h2 className="mb-0">
-                        <button type="button" className="btn" data-toggle="collapse" data-target="#collapseOne">
+                        <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseOne">
                           <span>What is a fixed rate?</span>
                           <i className="fa fa-plus"></i>
                         </button>
@@ -36,7 +36,7 @@ export const Faq = () => (
                   <div className="card">
                     <div className="card-header" id="faqTwo">
                       <h2 className="mb-0">
-                        <button type="button" className="btn" data-toggle="collapse" data-target="#collapseTwo">
+                        <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseTwo">
                           <span>What is a float rate?</span>
                           <i className="fa fa-plus"></i>
                         </button>
@@ -51,7 +51,7 @@ export const Faq = () => (
                   <div className="card">
                     <div className="card-header" id="faqThree">
                       <h2 className="mb-0">
-                        <button type="button" className="btn collapsed" data-toggle="collapse" data-target="#collapseThree">
+                        <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree">
                           <span>How can I track my order?</span>
                           <i className="fa fa-plus"></i>
                         </button>
@@ -66,8 +66,8 @@ export const Faq = () => (
                   <div className="card">
                     <div className="card-header" id="faqThreea">
                       <h2 className="mb-0">
-                        <button type="button" className="btn collapsed" data-toggle="collapse" data-target="#collapseThreea">
-                          <span>Is CoinChange user data saved?</span>
+                        <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThreea">
+                          <span>Is Bass Exchange user data saved?</span>
                           <i className="fa fa-plus"></i>
                         </button>
                       </h2>
@@ -81,7 +81,7 @@ export const Faq = () => (
                   <div className="card">
                     <div className="card-header" id="faqThreeas">
                       <h2 className="mb-0">
-                        <button type="button" className="btn collapsed" data-toggle="collapse" data-target="#collapseThreeas">
+                        <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThreeas">
                           <span>What can I do to speed up the transaction?</span>
                           <i className="fa fa-plus"></i>
                         </button>
@@ -96,7 +96,7 @@ export const Faq = () => (
                   <div className="card">
                     <div className="card-header" id="faqThreeasv">
                       <h2 className="mb-0">
-                        <button type="button" className="btn collapsed" data-toggle="collapse" data-target="#collapseThreeasv">
+                        <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThreeasv">
                           <span>Why is a currency I have exchanged not available anymore?</span>
                           <i className="fa fa-plus"></i>
                         </button>
@@ -104,14 +104,14 @@ export const Faq = () => (
                     </div>
                     <div id="collapseThreeasv" className="collapse" aria-labelledby="faqThreeasv" data-parent="#faqSeq">
                       <div className="card-body">
-                        <p>Sometimes CoinChange will temporarily remove a currency from our service while our developers fix bugs. If there are any issues or bugs we will ensure that our users do not have to experience them by resolving the issue and returning the currency to our exchange.</p>
+                        <p>Sometimes Bass Exchange will temporarily remove a currency from our service while our developers fix bugs. If there are any issues or bugs we will ensure that our users do not have to experience them by resolving the issue and returning the currency to our exchange.</p>
                       </div>
                     </div>
                   </div>
                   <div className="card">
                     <div className="card-header" id="faqThreeasx">
                       <h2 className="mb-0">
-                        <button type="button" className="btn collapsed" data-toggle="collapse" data-target="#collapseThreeasx">
+                        <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThreeasx">
                           <span>What is the max amount I can transfer?</span>
                           <i className="fa fa-plus"></i>
                         </button>
@@ -126,7 +126,7 @@ export const Faq = () => (
                   <div className="card">
                     <div className="card-header" id="faqThreeasbfgkr">
                       <h2 className="mb-0">
-                        <button type="button" className="btn collapsed" data-toggle="collapse" data-target="#collapseThreeasbfgkr">
+                        <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThreeasbfgkr">
                           <span>Where can I see more credible sources of your exchange?</span>
                           <i className="fa fa-plus"></i>
                         </button>
@@ -141,8 +141,8 @@ export const Faq = () => (
                   <div className="card">
                     <div className="card-header" id="faqFour">
                       <h2 className="mb-0">
-                        <button type="button" className="btn collapsed" data-toggle="collapse" data-target="#collapsefaqFour">
-                          <span>Does CoinChange offer livechat?</span>
+                        <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefaqFour">
+                          <span>Does Bass Exchange offer livechat?</span>
                           <i className="fa fa-plus"></i>
                         </button>
                       </h2>
@@ -158,7 +158,7 @@ export const Faq = () => (
             </div>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-12">
             <div className="faq_more_bttn">
               <p>Got More Questions ?</p>
@@ -173,7 +173,7 @@ export const Faq = () => (
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   </div>

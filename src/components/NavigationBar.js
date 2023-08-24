@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
-import logo from '../logo.svg'
+import logo from '../assets/images/logo.png'
+import { useSelector, useDispatch } from 'react-redux';
+import Cookies from 'js-cookie';
+import { setAuthState } from '../store/actions/authAction';
 
 const Styles = styled.div`
   .navbar {
@@ -44,55 +47,81 @@ const Styles = styled.div`
   }
 `;
 
-export const NavigationBar = () => (
-  <Styles>
-    <Navbar expand='lg sticky-top'>
-      <Container>
-        <Navbar.Brand href='/'><img src={logo} /></Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='m-auto'>
-            <Nav.Item className='text-center'>
-              <Nav.Link>
-                <Link to='/#feature'>Features</Link>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item className='text-center'>
-              <Nav.Link>
-                <Link to='/orders'>My Orders</Link>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item className='text-center'>
-              <Nav.Link>
-                <Link to='/about-us'>About Us</Link>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item className='text-center'>
-              <Nav.Link>
-                <Link to='/faqs'>FAQs</Link>
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-          <div className="d-flex justify-content-center align-items-center">
-            <a href='https://discord.gg/Whhpfx73BB' className="discord_link" target='_blank'>
-              <i className="fa-brands fa-discord"></i>
-            </a>
-            <a href='https://twitter.com/coinchange_to' className="twitter_link" target='_blank'>
-              <i className='fa-brands fa-twitter'></i>
-            </a>
-            <Nav>
+export const NavigationBar = () => {
+  const dispatch = useDispatch()
+
+  const token = Cookies.get('token')
+  useEffect(() => {
+    dispatch(setAuthState(token))
+  }, [token])
+
+  const authState = useSelector((state) => state.authData.authState)
+
+  const logOut = () => {
+    Cookies.remove('token')
+    window.location.href = '/'
+  }
+
+  return (
+    <Styles>
+      <Navbar expand='lg sticky-top'>
+        <Container>
+          <Navbar.Brand href='/'><img src={logo} /></Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='m-auto'>
               <Nav.Item className='text-center'>
                 <Nav.Link>
-                  <Link to='/login' className="font-weight-normal">Log In</Link>
+                  <Link to='/#feature'>Features</Link>
                 </Nav.Link>
               </Nav.Item>
-              <Link to='/signup' className="signup_btn">
-                Sign Up
-              </Link>
+              <Nav.Item className='text-center'>
+                <Nav.Link>
+                  <Link to='/orders'>My Orders</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item className='text-center'>
+                <Nav.Link>
+                  <Link to='/about-us'>About Us</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item className='text-center'>
+                <Nav.Link>
+                  <Link to='/faqs'>FAQs</Link>
+                </Nav.Link>
+              </Nav.Item>
             </Nav>
-          </div>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  </Styles>
-);
+            <div className="d-flex justify-content-center align-items-center">
+              {/* <a href='https://discord.gg/Whhpfx73BB' className="discord_link" target='_blank'>
+                <i className="fa-brands fa-discord"></i>
+              </a>
+              <a href='https://twitter.com/coinchange_to' className="twitter_link" target='_blank'>
+                <i className='fa-brands fa-twitter'></i>
+              </a> */}
+              <Nav>
+                {authState ? (
+                  <>
+                    <Nav.Link onClick={logOut}>
+                      <div className="font-weight-normal">Log Out</div>
+                    </Nav.Link>
+                  </>) : (
+                  <>
+                    <Nav.Item className='text-center'>
+                      <Nav.Link>
+                        <Link to='/login' className="font-weight-normal">Log In</Link>
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Link to='/signup' className="signup_btn">
+                      Sign Up
+                    </Link>
+                  </>
+                )}
+
+              </Nav>
+            </div>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </Styles>
+  )
+};
